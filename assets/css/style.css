@@ -1,0 +1,367 @@
+@charset "utf-8";
+/* ==========================================================================
+   1. CSS Reset Code
+   ========================================================================== */
+
+/* 1.1. Eric Meyers Reset
+   http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+   ========================================================================== */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img,
+ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure,
+figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* Force scrollbar */
+html { overflow-y: scroll; }
+
+/* Align radios and text inputs with their label */
+
+input[type='radio'] { vertical-align: text-bottom; }
+
+/* Hand cursor on clickable input elements */
+label,
+input[type='button'],
+input[type='submit'],
+button {
+  cursor: pointer;
+}
+
+strong {
+  font-weight: bold;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+em { font-style: italic; }
+
+img {
+  width: 100%;
+  border: 0;
+  vertical-align: middle;
+}
+
+sub,
+sup {
+  vertical-align: baseline;
+  position: relative;
+  font-size: 55%;
+  line-height: 0;
+}
+
+sup { top: -.7em; }
+sub { bottom: -.25em; }
+
+/* 1.2. Clear Fix
+   ========================== */
+
+.cf:before,
+.cf:after {
+  display: table;
+  content: " ";
+}
+
+.cf:after { clear: both; }
+.cf { *zoom: 1; }
+
+/*for all*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --clr-white: #fff;
+  --clr-violet: #516cff;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+a { 
+  display: inline-block;
+  text-decoration: none; 
+}
+
+li {
+  display: inline-block;
+  list-style-type: none;
+}
+
+span {
+  display: inline-block;
+}
+
+.section-heading {
+  font-size: 42px;
+  font-weight: 600;
+  text-transform: capitalize;
+  word-spacing: 10px;
+}
+
+/*for wrapper*/
+.wrapper {
+  max-width: 1360px;
+  width: 96%;
+  margin: 0 auto;
+}
+
+/*=================================
+  main styling starts here
+=================================*/
+
+.container {
+  width: 100%;
+  max-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--clr-violet);
+}
+
+.wrapper {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  color: var(--clr-white);
+}
+
+/* section 1 starts here */
+
+.play-button {
+  padding: 10px 20px;
+  border-radius: 2px;
+  background-color: var(--clr-white);
+  color: var(--clr-violet);
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: capitalize;
+  transition: all .3s;
+}
+
+/* section 1 ends here */
+
+/* section 2 starts here */
+
+.insect-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.insect {
+  width: 110px;
+  height: 110px;
+  padding: 7px 15px;
+  border: 2px solid var(--clr-white);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.insect.insect-active {
+  background-color: var(--clr-white);
+  color: var(--clr-violet);
+}
+
+.insect a {
+  color: var(--clr-white);
+}
+
+.insect span {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.insect figure {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.insect img {
+  height: 100%;
+}
+
+/* section 2 ends here */
+
+/* section 3 starts here */
+
+.game-main .wrapper {
+  align-items: initial;
+  justify-content: initial;
+  gap: 0;
+  position: relative;
+}
+
+.game-time-score {
+  width: 100%;
+  height: 12vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.game-time-score span {
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.game-display {
+  width: 100%;
+  height: 85vh;
+  padding: 10px;
+  position: relative;
+  text-indent: -99999px;
+}
+
+.final-score-box,
+.play-again {
+  border-radius: 5px;
+  display: none;
+  position: absolute;
+  left: 50%;
+  z-index: 2;
+  background-color: var(--clr-white);
+  color: var(--clr-violet);
+  font-size: 22px;
+  text-transform: capitalize;
+}
+
+.final-score-box {
+  padding: 6px;
+  top: 30%;
+  transform: translateX(-50%);
+}
+
+.play-again {
+  padding: 10px;
+  top: 50%;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+}
+
+.final-score-box span {
+  display: block;
+  text-align: center;
+}
+
+.final-score {
+  padding: 6px;
+  margin-top: 4px;
+  border-radius: 5px;
+  background-color: var(--clr-violet);
+  color: var(--clr-white);
+  font-size: 34px;
+  font-weight: 600;
+}
+
+.game-alert {
+  width: 100vw;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-color: rgba(0,0,0,0.4);
+  visibility: hidden;
+}
+
+.game-alert.alert-active {
+  animation: alertvisible .5s linear forwards;
+}
+
+@keyframes alertvisible {
+  0%{
+    top: 0;
+    visibility: hidden;
+  }
+  100%{
+    top: 20%;
+    visibility: visible;  
+  }
+}
+
+.game-alert p::first-letter {
+  text-transform: uppercase;
+}
+
+.game-alert p {
+  color: var(--clr-white);
+  font-weight: 600;
+  text-align: center;
+}
+
+/* section 3 ends here */
+
+/* additional classes for js program  */
+
+.pointer-disable {
+  pointer-events: none;
+}
+
+.viewport-active {
+  position: relative;
+  animation: animeone .7s linear forwards;
+}
+
+@keyframes animeone {
+  0% { transform: translateY(100%); }
+  100% { transform: translateY(0); }
+}
+
+.viewport-inactive {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  animation: animetwo .7s linear forwards;
+}
+
+@keyframes animetwo {
+  0% { top: 0;}
+  100% { top: -100%;}
+}
+
+.active {
+  display: block;
+}
+
+/*=================================
+  main styling ends here
+=================================*/
